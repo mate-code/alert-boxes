@@ -36,7 +36,7 @@ $.fn.alertBox = function (data) {
     var alertBox = $('<div class="alert alert-dismissible"></div>');
     alertBox.addClass('alert-' + data.type);
     alertBox.addClass('theme-' + data.theme);
-    alertBox.attr('id', 'alert-' + boxCount);
+    alertBox.attr('id', 'alert-' + $.fn.alertBox.boxCount);
 
     var msgHtml = '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
     if(data.enableHeading) {
