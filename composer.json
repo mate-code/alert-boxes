@@ -1,0 +1,20 @@
+{
+  "name": "mate-code/alert-boxes",
+  "type": "component",
+  "description": "Simple bootstrap alert boxes created with jQuery",
+  "keywords": [
+    "bootstrap",
+    "jQuery",
+    "alert box"
+  ],
+  "license": "BSD-3-Clause",
+  "require": {
+    "mate-code/mate-mixins": "~1.0"
+  },
+  "authors": [
+    {
+      "name": "Marius Teller",
+      "email": "marius.teller@mail.de"
+    }
+  ]
+}
