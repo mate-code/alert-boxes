@@ -22,9 +22,6 @@ $.fn.alertBox = function (data) {
     this.alertContainer = this.children('.alert-boxes').first();
     if(this.alertContainer.length < 1) {
         this.alertContainer = $.fn.alertBox.createContainer(this, data.container);
-        console.log('new container');
-    } else {
-        console.log('existing container');
     }
 
     // message visibility based on word count
