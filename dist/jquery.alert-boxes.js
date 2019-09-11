@@ -1,10 +1,10 @@
 $.fn.alertBox = function (data) {
 
-    this.ucfirst = function(string) {
+    this.ucfirst = function (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
-    if(typeof data === "string") {
+    if (typeof data === "string") {
         data = {message: data};
     }
     data = $.extend(true, {}, $.fn.alertBox.options, data);
@@ -20,7 +20,7 @@ $.fn.alertBox = function (data) {
 
     // get alert boxes container
     this.alertContainer = this.children('.alert-boxes').first();
-    if(this.alertContainer.length < 1) {
+    if (this.alertContainer.length < 1) {
         this.alertContainer = $.fn.alertBox.createContainer(this, data.container);
     }
 
@@ -36,7 +36,7 @@ $.fn.alertBox = function (data) {
     alertBox.attr('id', 'alert-' + $.fn.alertBox.boxCount);
 
     var msgHtml = '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    if(data.enableHeading) {
+    if (data.enableHeading) {
         var headingText = typeof data.heading === 'undefined' ? this.ucfirst(data.type) : data.heading;
         msgHtml += '<h' + data.headingSize + ' class="head">' + headingText + '</h' + data.headingSize + '>';
     }
@@ -55,8 +55,10 @@ $.fn.alertBox = function (data) {
         .delay(messageVisibilityTime)
         .slideUp(function () {
             $(this).remove();
-        })
-    ;
+        });
+    alertBox.find('button.close').click(function () {
+        alertBox.remove();
+    });
 
     $.fn.alertBox.boxCount++;
 };
@@ -80,10 +82,10 @@ $.fn.alertBox.options = {
     }
 };
 
-$.fn.alertBox.createContainer = function(target, options) {
+$.fn.alertBox.createContainer = function (target, options) {
     options = $.extend({}, $.fn.alertBox.options.container, options);
 
-    switch(options.align) {
+    switch (options.align) {
         case 'top-left':
             options.css.top = options.offsetY;
             options.css.left = options.offsetX;
