@@ -10,6 +10,7 @@ $.fn.alertBox = function (data) {
     data = $.extend(true, {}, $.fn.alertBox.options, data);
 
     // status aliases
+    data.type = typeof data.status !== "undefined" ? data.status : data.type;
     switch (data.type) {
         case "error":
             data.type = "danger";
